@@ -1,1 +1,5 @@
-<p>main works!</p>
+<div class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-4 bg-sky-500 justify-items-center">
+    @for (personaje of array; track $index) {
+        <app-personaje [personaje]="personaje"/>
+    }
+</div>

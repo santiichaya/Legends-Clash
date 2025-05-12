@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Chernobyl';
+  src: url('./assets/fonts/Chernobyl.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Narnia';
+  src: url('./assets/fonts/Narnia.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Avengers';
+  src: url('./assets/fonts/Marvel.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'DC';
+  src: url('./assets/fonts/DC.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Los Pitufos';
+  src: url('./assets/fonts/Los\ Pitufos.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Star Wars';
+  src: url('./assets/fonts/Star\ Wars.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Transformers';
+  src: url('./assets/fonts/Transformers.otf') format('truetype');
+}
+
+@theme {
+  --color-marvel: #ED1D24;
+  --color-dc: #0476F2;
+  --color-pitufo: #2AA9E0;
+  --color-narnia: #FFD700;
+  --font-chernobyl: 'Chernobyl';
+  --font-narnia: 'Narnia';
+  --font-marvel: 'Marvel';
+  --font-dc: 'DC';
+  --font-lospitufos: 'Los Pitufos';
+  --font-starwars: 'Star Wars';
+  --font-transformers: 'Transformers';
+}
