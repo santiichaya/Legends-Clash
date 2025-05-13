@@ -1,11 +1,19 @@
 <div class="bg-blue-950 p-4 pb-0 text-white">
     <div class="flex justify-between mb-4">
         <div><p class="font-chernobyl text-6xl">Legends Clash</p></div>
-        <div><mat-icon aria-hidden="true" fontIcon="login" 
+        <div><mat-icon aria-hidden="true" fontIcon="login"
                      class="!text-[40px] !w-[40px] !h-[40px]"></mat-icon></div>
     </div>
     <div class="flex justify-start text-xl">
-        <a href="" class="mr-20"><div class="border-b-2"><p>Personajes</p></div></a>
-        <a><div><p>Batallas</p></div></a>
-    </div>
+    <a href="" class="mr-20">
+        <div [ngClass]="{ 'border-b-2': !light }">
+            <p>Personajes</p>
+        </div>
+    </a>
+    <a [routerLink]="'batallas'">
+        <div [ngClass]="{ 'border-b-2': light }">
+            <p>Batallas</p>
+        </div>
+    </a>
+</div>
 </div>
