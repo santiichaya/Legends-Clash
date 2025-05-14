@@ -1,12 +1,16 @@
 package com.LegendsClash.project.models;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
 public class Personaje {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPersonaje;
+    private Long id;
 
     private String nombre;
     private String saga;
@@ -26,18 +30,13 @@ public class Personaje {
     private int peso;
     private int experiencia;
 
-    // Relación con el Equipo
-    @ManyToOne
-    @JoinColumn(name = "id_equipo")
-    private Equipo equipo;
-
     // Getters y Setters
-    public Long getIdPersonaje() {
-        return idPersonaje;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdPersonaje(Long idPersonaje) {
-        this.idPersonaje = idPersonaje;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -166,13 +165,5 @@ public class Personaje {
 
     public void setExperiencia(int experiencia) {
         this.experiencia = experiencia;
-    }
-
-    public Equipo getEquipo() {
-        return equipo;
-    }
-
-    public void setEquipo(Equipo equipo) {
-        this.equipo = equipo;
     }
 }

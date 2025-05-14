@@ -9,25 +9,29 @@ public class Equipo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEquipo;
+    private Long id;
 
     private String nombreEquipo;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
-    @OneToMany
-    @JoinColumn(name = "id_equipo")
+    @ManyToMany
+    @JoinTable(
+            name = "personajes_de_equipo",
+            joinColumns = @JoinColumn(name = "id_equipo"),
+            inverseJoinColumns = @JoinColumn(name = "id_personaje")
+    )
     private List<Personaje> personajes;
 
     // Getters y Setters
-    public Long getIdEquipo() {
-        return idEquipo;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdEquipo(Long idEquipo) {
-        this.idEquipo = idEquipo;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombreEquipo() {

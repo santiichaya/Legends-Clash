@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @font-face {
   font-family: 'Chernobyl';
   src: url('./assets/fonts/Chernobyl.otf') format('truetype');
@@ -11,7 +12,7 @@
 }
 
 @font-face {
-  font-family: 'Avengers';
+  font-family: 'Marvel';
   src: url('./assets/fonts/Marvel.ttf') format('truetype');
 }
 
@@ -35,11 +36,88 @@
   src: url('./assets/fonts/Transformers.otf') format('truetype');
 }
 
-@theme {
-  --color-marvel: #ED1D24;
-  --color-dc: #0476F2;
-  --color-pitufo: #2AA9E0;
-  --color-narnia: #FFD700;
+@font-face {
+  font-family: 'LOTR';
+  src: url('./assets/fonts/LOTR.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'The Hobbit';
+  src: url('./assets/fonts/The\ Hobbit.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Primary';
+  src: url('./assets/fonts/Primary.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'PrimaryBold';
+  src: url('./assets/fonts/PrimaryBold.ttf') format('truetype');
+}
+
+
+.font-chernobyl {
+  font-family: 'Chernobyl', sans-serif;
+}
+
+.font-narnia {
+  font-family: 'Narnia', sans-serif;
+}
+
+.font-marvel {
+  font-family: 'Marvel', sans-serif;
+}
+
+.font-dc {
+  font-family: 'DC', sans-serif;
+}
+
+.font-los-pitufos {
+  font-family: 'Los Pitufos', sans-serif;
+}
+
+.font-star-wars {
+  font-family: 'Star Wars', sans-serif;
+}
+
+.font-transformers {
+  font-family: 'Transformers', sans-serif;
+}
+
+.font-lotr {
+  font-family: 'LOTR', sans-serif;
+}
+
+.font-the-hobbit {
+  font-family: 'The Hobbit', sans-serif;
+}
+
+.font-primary {
+  font-family: 'Primary', sans-serif;
+}
+
+.font-primary-bold {
+  font-family: 'PrimaryBold', sans-serif;
+}
+
+app-main {
+  height: 100%;
+}
+
+app-personaje {
+  height: 100%;
+}
+
+:root {
+  --color-marvel: #94181c;
+  --color-dc: #000000;
+  --color-lospitufos: #0088ff;
+  --color-narnia: #d1a131;
+  --color-starwars: #000000;
+  --color-transformers: #0b00a5;
+  --color-elseñordelosanillos: #AAAAAA;
+  --color-elhobbit: #6B8E23 ;
   --font-chernobyl: 'Chernobyl';
   --font-narnia: 'Narnia';
   --font-marvel: 'Marvel';
@@ -47,4 +125,12 @@
   --font-lospitufos: 'Los Pitufos';
   --font-starwars: 'Star Wars';
   --font-transformers: 'Transformers';
+  --font-elseñordelosanillos: 'LOTR';
+  --font-elhobbit: 'The Hobbit';
+  --font-primary: 'Primary';
+  --font-primary-bold: 'PrimaryBold';
+  --color-fontstarwars: #ffe600;
+  --color-fontdc: #1c71cb;
+  --color-fonttransformers: #ffffff;
+  --color-fontmarvel: #FFFFFF;
 }

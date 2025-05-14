@@ -5,6 +5,8 @@ import com.LegendsClash.project.services.VotoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/votos")
 public class VotoController {

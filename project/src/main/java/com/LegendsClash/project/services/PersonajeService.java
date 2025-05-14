@@ -5,6 +5,8 @@ import com.LegendsClash.project.repositories.PersonajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonajeService {
 
@@ -23,5 +25,8 @@ public class PersonajeService {
         return personajeRepository.findByNombre(nombre);
     }
 
-    // Otros métodos si es necesario
+    public List<Personaje> getPersonajes() {
+        return personajeRepository.getPersonajes();
+    }
+
 }

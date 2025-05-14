@@ -1,43 +1,29 @@
-import { Component } from '@angular/core';
-import { PersonajeComponent } from '../../components/personaje/personaje.component';
+import { Component, OnInit } from '@angular/core';
+import { PersonajeCartaComponent } from '../../components/personaje/personaje.component';
+import { ApiService } from '../../services/api.service';
+import Personaje from '../../models/Personaje';
 
 @Component({
   selector: 'app-main',
-  imports: [PersonajeComponent],
+  imports: [PersonajeCartaComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })
-export class MainComponent {
-  array = [
-    "aquaman", 
-    "aslan", 
-    "batman", 
-    "blackpanther", 
-    "blackwidow", 
-    "capitan", 
-    "caspian", 
-    "doctorstrange", 
-    "flash", 
-    "fortachon", 
-    "greenlantern", 
-    "han", 
-    "hulk", 
-    "ironman", 
-    "leia", 
-    "lucy", 
-    "luke", 
-    "megatron", 
-    "optimusprime", 
-    "papa_pitufo", 
-    "patoso", 
-    "peter", 
-    "pitufina", 
-    "spiderman", 
-    "superman", 
-    "susan", 
-    "thor", 
-    "vader", 
-    "venom", 
-    "yoda"
-  ];
+export class MainComponent implements OnInit{
+
+  personajes: Personaje[] | null;
+
+  constructor ( public api: ApiService ) {
+    this.personajes = null;
+  }
+
+  ngOnInit(): void {
+    this.api.getPersonajes().subscribe({
+        next: (data) => {
+          this.personajes = data;
+        },
+        error: (e) => console.log(e)
+      });
+  }
 }
+

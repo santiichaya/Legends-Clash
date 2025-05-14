@@ -1,0 +1,19 @@
+export default interface Personaje {
+    id: number,
+    nombre: string,
+    saga: string,
+    descripcion: string,
+    fuerza: number,
+    inteligencia: number,
+    resistencia: number,
+    velocidad: number,
+    agilidad: number,
+    carisma: number,
+    alcance: number,
+    altura: number,
+    peso: number,
+    experiencia: number,
+    imagenCuerpo: string,
+    imagenBatalla: string,
+    imagenBusto: string
+}

@@ -7,23 +7,23 @@ public class Batalla {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idBatalla;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_equipo_1", nullable = false)
+    @JoinColumn(name = "equipo1_id", nullable = false)
     private Equipo equipo1;
 
     @ManyToOne
-    @JoinColumn(name = "id_equipo_2", nullable = false)
+    @JoinColumn(name = "equipo2_id", nullable = false)
     private Equipo equipo2;
 
     // Getters y Setters
-    public Long getIdBatalla() {
-        return idBatalla;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdBatalla(Long idBatalla) {
-        this.idBatalla = idBatalla;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Equipo getEquipo1() {

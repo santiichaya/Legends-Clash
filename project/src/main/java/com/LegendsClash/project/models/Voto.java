@@ -8,27 +8,27 @@ public class Voto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idVoto;
+    private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false)
+    @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "id_batalla", nullable = false)
+    @JoinColumn(name = "batalla_id", nullable = false)
     private Batalla batalla;
 
     @ManyToOne
-    @JoinColumn(name = "id_equipo_votado", nullable = false)
+    @JoinColumn(name = "equipo_id", nullable = false)
     private Equipo equipoVotado;
 
     // Getters y Setters
-    public Long getIdVoto() {
-        return idVoto;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdVoto(Long idVoto) {
-        this.idVoto = idVoto;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Usuario getUsuario() {

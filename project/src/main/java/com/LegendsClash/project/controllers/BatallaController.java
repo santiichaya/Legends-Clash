@@ -5,6 +5,7 @@ import com.LegendsClash.project.services.BatallaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("/api/batallas")
 public class BatallaController {
