@@ -36,6 +36,13 @@ VALUES
 ('Megatron', 'Transformers', 100, 80, 95, 75, 70, 85, 90, 300, 270, 115, 'assets/cuerpo/megatron.jpg', 'assets/batalla/megatron.jpg', 'assets/busto/megatron.jpg'),
 
 ('Samwise Gamgee', 'El Señor de los Anillos', 60, 85, 85, 70, 65, 90, 75, 130, 60, 110, 'assets/cuerpo/samwise.jpg', 'assets/batalla/samwise.jpg', 'assets/busto/samwise.jpg'),
+('Frodo Baggins', 'El Señor de los Anillos', 50, 75, 60, 80, 70, 95, 60, 120, 45, 100, '/assets/cuerpo/frodo_baggins.jpg', '/assets/batalla/frodo_baggins.jpg', '/assets/busto/frodo_baggins.jpg'),
+('Aragorn', 'El Señor de los Anillos', 95, 85, 95, 90, 85, 90, 100, 185, 80, 150, '/assets/cuerpo/aragorn.jpg', '/assets/batalla/aragorn.jpg', '/assets/busto/aragorn.jpg'),
+('Gandalf el gris', 'El Señor de los Anillos', 70, 90, 80, 60, 55, 95, 90, 180, 75, 140, '/assets/cuerpo/gandalf_gris.jpg', '/assets/batalla/gandalf_gris.jpg', '/assets/busto/gandalf_gris.jpg'),
+('Gandalf el blanco', 'El Señor de los Anillos', 75, 100, 80, 65, 55, 90, 90, 180, 75, 160, '/assets/cuerpo/gandalf_blanco.jpg', '/assets/batalla/gandalf_blanco.jpg', '/assets/busto/gandalf_blanco.jpg'),
+('Legolas', 'El Señor de los Anillos', 80, 85, 90, 95, 95, 90, 90, 180, 75, 130, '/assets/cuerpo/legolas.jpg', '/assets/batalla/legolas.jpg', '/assets/busto/legolas.jpg'),
+('Gimli', 'El Señor de los Anillos', 95, 70, 90, 70, 65, 75, 80, 150, 85, 140, '/assets/cuerpo/gimli.jpg', '/assets/batalla/gimli.jpg', '/assets/busto/gimli.jpg'),
+('Sauron', 'El Señor de los Anillos', 95, 90, 100, 40, 30, 55, 100, 220, 5000, 160, '/assets/cuerpo/sauron.jpg', '/assets/batalla/sauron.jpg', '/assets/busto/sauron.jpg'),
 
 ('Bilbo Baggins', 'El Hobbit', 50, 90, 70, 80, 75, 95, 60, 120, 45, 100, 'assets/cuerpo/bilbo_baggins.jpg', 'assets/batalla/bilbo_baggins.jpg', 'assets/busto/bilbo_baggins.jpg'),
 ('Thorin Oakenshield', 'El Hobbit', 95, 75, 90, 70, 60, 85, 85, 180, 90, 130, 'assets/cuerpo/thorin_oakenshield.jpg', 'assets/batalla/thorin_oakenshield.jpg', 'assets/busto/thorin_oakenshield.jpg')
