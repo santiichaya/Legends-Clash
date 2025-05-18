@@ -1,0 +1,32 @@
+.range-container {
+  display: flex;
+  align-items: center;
+  height: 2rem;
+  padding: 0 0.5rem; /* Opcional: para dar espacio a los extremos */
+}
+
+.range-custom {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  margin: 0;
+  background: transparent;
+}
+
+/* Estilos para el track */
+.range-custom::-webkit-slider-runnable-track {
+  height: 0.5rem;
+  background: var(--color-secondarynarnia);
+  border-radius: 100px;
+}
+
+/* Estilos para el thumb */
+.range-custom::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: black;
+  border: 2px solid var(--color-secondarynarnia);
+  border-radius: 50%;
+  margin-top: -0.5rem; /* (altura thumb - altura track) / 2 */
+}
