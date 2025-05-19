@@ -1,18 +1,15 @@
-<div
-  class="h-full p-4 flex justify-between flex-wrap"
-  [ngStyle]="{
+<div class="h-full p-4 flex justify-between flex-wrap" [ngStyle]="{
     'background-color': 'var(--color-' + estilosSaga + ')',
     'font-family': 'var(--font-' + estilosSaga + ')',
     color: 'var(--color-font' + estilosSaga + ')'
-  }"
->
-<div class="w-[100%] mb-4">
-<p class="text-4xl font-bold">{{ personaje?.nombre }}</p>
+  }">
+  <div class="w-[100%] mb-4">
+    <p class="text-4xl font-bold">{{ personaje?.nombre }}</p>
     <p>{{ personaje?.saga }}</p>
-</div>
+  </div>
 
   <div class="w-[40%] aspect-square">
-    <img [src]="personaje?.imagenCuerpo"/>
+    <img [src]="personaje?.imagenCuerpo" />
   </div>
   <div class="w-[60%] p-8">
     <p>Stats:</p>
@@ -26,96 +23,68 @@
         <tr>
           <td>Fuerza:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.fuerza"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="100" [value]="personaje?.fuerza" disabled 
+            class="range-custom w-full"
+            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'"/>
           </td>
           <td class="pl-4">{{ personaje?.fuerza }}</td>
         </tr>
         <tr>
           <td>Inteligencia:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.inteligencia"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="100" [value]="personaje?.inteligencia" disabled
+              class="range-custom w-full"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
           </td>
           <td class="pl-4">{{ personaje?.inteligencia }}</td>
         </tr>
         <tr>
           <td>Resistencia:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.resistencia"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="100" [value]="personaje?.resistencia" disabled
+              class="range-custom w-full"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
           </td>
           <td class="pl-4">{{ personaje?.resistencia }}</td>
         </tr>
         <tr>
           <td>Velocidad:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.velocidad"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="100" [value]="personaje?.velocidad" disabled class="range-custom w-full"
+            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
           </td>
           <td class="pl-4">{{ personaje?.velocidad }}</td>
         </tr>
         <tr>
           <td>Agilidad:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.agilidad"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="100" [value]="personaje?.agilidad" disabled class="range-custom w-full"
+            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
           </td>
           <td class="pl-4">{{ personaje?.agilidad }}</td>
         </tr>
         <tr>
           <td>Carisma:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.carisma"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="100" [value]="personaje?.carisma" disabled class="range-custom w-full"
+            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
           </td>
           <td class="pl-4">{{ personaje?.carisma }}</td>
         </tr>
         <tr>
           <td>Alcance:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.alcance"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="100" [value]="personaje?.alcance" disabled class="range-custom w-full"
+            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
           </td>
           <td class="pl-4">{{ personaje?.alcance }}</td>
         </tr>
         <tr>
           <td>Experiencia:</td>
           <td>
-            <input
-              type="range"
-              [value]="personaje?.experiencia"
-              disabled
-              class="range-custom w-72"
-            />
+            <input type="range" min="0" max="200" [value]="personaje?.experiencia" disabled
+              class="range-custom w-full"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
           </td>
           <td class="pl-4">{{ personaje?.experiencia }}</td>
         </tr>

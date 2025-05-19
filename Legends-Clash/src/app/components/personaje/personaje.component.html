@@ -1,18 +1,22 @@
-<div class="w-full rounded-2xl overflow-hidden"
+<div class="w-full rounded-2xl overflow-hidden h-full"
     [ngStyle]="{
        'background-color': 'var(--color-' + estilosSaga + ')',
        'font-family': 'var(--font-' + estilosSaga + ')',
        'color': 'var(--color-font' + estilosSaga + ')'
      }">
-    <a class="flex flex-wrap" [routerLink]="`/personaje/${personaje.id}`">
-        <div class="w-[50%]">
-            <img [src]="personaje.imagenBusto" class="w-full aspect-square" />
+    <a class="flex flex-wrap flex-col" [routerLink]="`/personaje/${personaje.id}`">
+        <div class="w-full">
+            <img [src]="personaje.imagenBusto" class="w-full aspect-square rounded-t-2xl border-4"
+            [ngStyle]="{
+       'border-color': 'var(--color-secondary' + estilosSaga + ')'
+     }"/>
         </div>
-        <div class="w-[50%] p-2 pl-2 text-xl">
+        <div class="w-full p-2 pl-2 text-xl">
+            <p class="w-full text-2xl font-bold">{{ personaje.nombre }}</p>
             <p class="text-2xl">{{ personaje.saga }}</p>
             <p>Altura: {{ personaje.altura }}cm</p>
             <p>Peso: {{ personaje.peso }}kg</p>
         </div>
-        <p class="w-full text-2xl m-1">{{ personaje.nombre }}</p>
+        
     </a>
 </div>
