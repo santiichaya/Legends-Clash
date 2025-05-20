@@ -22,69 +22,137 @@
       <tbody>
         <tr>
           <td>Fuerza:</td>
-          <td>
-            <input type="range" min="0" max="100" [value]="personaje?.fuerza" disabled 
-            class="range-custom w-full"
-            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'"/>
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('fuerza')" [disabled]="personaje?.fuerza === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.fuerza === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="100" [value]="personaje?.fuerza" disabled class="range-custom w-[90%]"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('fuerza')" [disabled]="personaje?.fuerza === 100"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.fuerza === 100"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.fuerza }}</td>
         </tr>
         <tr>
           <td>Inteligencia:</td>
-          <td>
-            <input type="range" min="0" max="100" [value]="personaje?.inteligencia" disabled
-              class="range-custom w-full"
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('inteligencia')" [disabled]="personaje?.inteligencia === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.inteligencia === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="100" [value]="personaje?.inteligencia" disabled class="range-custom w-[90%]"
               [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('inteligencia')" [disabled]="personaje?.inteligencia === 100"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.inteligencia === 100"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.inteligencia }}</td>
         </tr>
         <tr>
           <td>Resistencia:</td>
-          <td>
-            <input type="range" min="0" max="100" [value]="personaje?.resistencia" disabled
-              class="range-custom w-full"
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('resistencia')" [disabled]="personaje?.resistencia === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.resistencia === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="100" [value]="personaje?.resistencia" disabled class="range-custom w-[90%]"
               [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('resistencia')" [disabled]="personaje?.resistencia === 100"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.resistencia === 100"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.resistencia }}</td>
         </tr>
         <tr>
           <td>Velocidad:</td>
-          <td>
-            <input type="range" min="0" max="100" [value]="personaje?.velocidad" disabled class="range-custom w-full"
-            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('velocidad')" [disabled]="personaje?.velocidad === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.velocidad === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="100" [value]="personaje?.velocidad" disabled class="range-custom w-[90%]"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('velocidad')" [disabled]="personaje?.velocidad === 100"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.velocidad === 100"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.velocidad }}</td>
         </tr>
         <tr>
           <td>Agilidad:</td>
-          <td>
-            <input type="range" min="0" max="100" [value]="personaje?.agilidad" disabled class="range-custom w-full"
-            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('agilidad')" [disabled]="personaje?.agilidad === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.agilidad === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="100" [value]="personaje?.agilidad" disabled class="range-custom w-[90%]"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('agilidad')" [disabled]="personaje?.agilidad === 100"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.agilidad === 100"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.agilidad }}</td>
         </tr>
         <tr>
           <td>Carisma:</td>
-          <td>
-            <input type="range" min="0" max="100" [value]="personaje?.carisma" disabled class="range-custom w-full"
-            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('carisma')" [disabled]="personaje?.carisma === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.carisma === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="100" [value]="personaje?.carisma" disabled class="range-custom w-[90%]"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('carisma')" [disabled]="personaje?.carisma === 100"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.carisma === 100"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.carisma }}</td>
         </tr>
         <tr>
           <td>Alcance:</td>
-          <td>
-            <input type="range" min="0" max="100" [value]="personaje?.alcance" disabled class="range-custom w-full"
-            [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('alcance')" [disabled]="personaje?.alcance === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.alcance === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="100" [value]="personaje?.alcance" disabled class="range-custom w-[90%]"
+              [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('alcance')" [disabled]="personaje?.alcance === 100"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.alcance === 100"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.alcance }}</td>
         </tr>
         <tr>
           <td>Experiencia:</td>
-          <td>
-            <input type="range" min="0" max="200" [value]="personaje?.experiencia" disabled
-              class="range-custom w-full"
+          <td class="flex flex-wrap justify-between p-1">
+            <button (click)="subtract('experiencia')" [disabled]="personaje?.experiencia === 0"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.experiencia === 0">
+              <mat-icon aria-hidden="false">remove</mat-icon>
+            </button>
+            <input type="range" min="0" max="200" [value]="personaje?.experiencia" disabled class="range-custom w-[90%]"
               [style.--color-range]="'var(--color-secondary' + estilosSaga + ')'" />
+            <button (click)="add('experiencia')" [disabled]="personaje?.experiencia === 200"
+              class="text-black flex items-center justify-center rounded-full bg-gray-400"
+              [class.opacity-50]="personaje?.experiencia === 200"><mat-icon
+                aria-hidden="true">add</mat-icon></button>
           </td>
           <td class="pl-4">{{ personaje?.experiencia }}</td>
         </tr>
@@ -93,5 +161,10 @@
     <p>Altura: {{ personaje?.altura }}cm</p>
     <p>Peso: {{ personaje?.peso }}kg</p>
     <p>{{ personaje?.descripcion }}</p>
+    @if (actualizado) {
+      <button (click)="actualizar()" class="mt-4 border-4 p-2 rounded-xl" [ngStyle]="{
+        'border-color':  'var(--color-secondary' + estilosSaga + ')'
+      }">Actualizar</button>
+    }
   </div>
 </div>

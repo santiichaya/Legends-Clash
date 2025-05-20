@@ -14,7 +14,7 @@ public class Equipo {
     private String nombreEquipo;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id")
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
     @ManyToMany

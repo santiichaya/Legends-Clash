@@ -11,15 +11,15 @@ public class Voto {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "usuario_id", nullable = false)
+    @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "batalla_id", nullable = false)
+    @JoinColumn(name = "id_batalla", nullable = false)
     private Batalla batalla;
 
     @ManyToOne
-    @JoinColumn(name = "equipo_id", nullable = false)
+    @JoinColumn(name = "id_equipo_votado", nullable = false)
     private Equipo equipoVotado;
 
     // Getters y Setters

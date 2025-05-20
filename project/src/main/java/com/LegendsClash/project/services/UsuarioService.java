@@ -25,7 +25,7 @@ public class UsuarioService {
     }
 
     public Usuario validarUsuario(LoginDTO usuario) {
-        return usuarioRepository.validarUsuario(usuario.getNombre(), usuario.getContrasena());
+        return usuarioRepository.validarUsuario(usuario);
     }
 
     // Otros métodos para gestionar usuarios

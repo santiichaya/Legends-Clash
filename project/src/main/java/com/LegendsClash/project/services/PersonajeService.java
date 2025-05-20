@@ -1,5 +1,6 @@
 package com.LegendsClash.project.services;
 
+import com.LegendsClash.project.DTO.UpdatePersonaje;
 import com.LegendsClash.project.models.Personaje;
 import com.LegendsClash.project.repositories.PersonajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class PersonajeService {
 
     public List<Personaje> getPersonajes() {
         return personajeRepository.getPersonajes();
+    }
+
+    public void updatePersonaje(UpdatePersonaje personaje) {
+        personajeRepository.updatePersonaje(personaje);
     }
 
 }

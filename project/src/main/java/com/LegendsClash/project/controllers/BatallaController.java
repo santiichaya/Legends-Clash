@@ -5,6 +5,8 @@ import com.LegendsClash.project.services.BatallaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/batallas")
@@ -21,5 +23,10 @@ public class BatallaController {
     @GetMapping("/{id}")
     public Batalla obtenerBatalla(@PathVariable Long id) {
         return batallaService.obtenerBatallaPorId(id);
+    }
+
+    @GetMapping("/getBatallas")
+    public List<Batalla> getBatallas() {
+        return batallaService.getBatallas();
     }
 }

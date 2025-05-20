@@ -10,11 +10,11 @@ public class Batalla {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "equipo1_id", nullable = false)
+    @JoinColumn(name = "id_equipo_1", nullable = false)
     private Equipo equipo1;
 
     @ManyToOne
-    @JoinColumn(name = "equipo2_id", nullable = false)
+    @JoinColumn(name = "id_equipo_2", nullable = false)
     private Equipo equipo2;
 
     // Getters y Setters

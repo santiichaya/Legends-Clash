@@ -13,10 +13,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
     @Query("""
             SELECT u FROM Usuario u
-            WHERE u.nombre = :nombre
-            AND u.contrasena = :contrasena""")
-    Usuario validarUsuario(
-            @Param("nombre") String nombre,
-            @Param("contrasena") String contrasena
-    );
+            WHERE u.nombre = :#{#usuario.nombre}
+            AND u.contrasena = :#{#usuario.contrasena}""")
+    Usuario validarUsuario(@Param("usuario") LoginDTO usuario);
 }

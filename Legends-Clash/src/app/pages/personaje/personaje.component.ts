@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
 import Personaje from '../../models/Personaje';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
-import { NgStyle } from '@angular/common';
+import { NgIf, NgStyle } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import PersonajeUpdate from '../../models/PersonajeUpdate';
 
 @Component({
   selector: 'app-personaje',
-  imports: [NgStyle],
+  imports: [NgStyle, MatIconModule],
   templateUrl: './personaje.component.html',
   styleUrl: './personaje.component.css'
 })
@@ -15,7 +17,8 @@ export class PersonajeComponent implements OnInit {
   personaje: Personaje | null;
   routeSubscription: Subscription | null;
   idPersonaje: string | null = "";
-  estilosSaga: string = ""
+  estilosSaga: string = "";
+  actualizado: boolean = false;
 
   constructor(private api: ApiService, private route: ActivatedRoute) {
     this.personaje = null;
@@ -34,6 +37,39 @@ export class PersonajeComponent implements OnInit {
       },
       error: (e) => console.log(e)
     });
+  }
 
+  add(atributo: keyof Personaje) {
+    this.personaje![atributo]++;
+    this.actualizado = true;
+  }
+
+  subtract(atributo: keyof Personaje) {
+    this.personaje![atributo]--;
+    this.actualizado = true;
+  }
+
+  actualizar() {
+    console.log(this.personaje);
+    const update: PersonajeUpdate = {
+      id: this.personaje!.id,
+      nombre: this.personaje!.nombre,
+      saga: this.personaje!.saga,
+      descripcion: this.personaje!.descripcion,
+      fuerza: this.personaje!.fuerza,
+      inteligencia: this.personaje!.inteligencia,
+      resistencia: this.personaje!.resistencia,
+      velocidad: this.personaje!.velocidad,
+      agilidad: this.personaje!.agilidad,
+      carisma: this.personaje!.carisma,
+      alcance: this.personaje!.alcance,
+      altura: this.personaje!.altura,
+      peso: this.personaje!.peso,
+      experiencia: this.personaje!.experiencia,
+    };
+    this.api.updatePersonaje(update).subscribe({
+      next: (data) => console.log(data),
+      error: (e) => console.log(e)
+    });
   }
 }
