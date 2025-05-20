@@ -14,6 +14,7 @@ public interface PersonajeRepository extends JpaRepository<Personaje, Long> {
     @Query("""
             SELECT p
             FROM Personaje p
+            ORDER BY p.id
             """)
     List<Personaje> getPersonajes();
 }

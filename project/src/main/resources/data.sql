@@ -55,15 +55,15 @@ VALUES
 (38, 'Bilbo Baggins', 'El Hobbit', 50, 90, 70, 80, 75, 95, 60, 120, 45, 100, 'assets/cuerpo/bilbo_baggins.jpg', 'assets/batalla/bilbo_baggins.jpg', 'assets/busto/bilbo_baggins.jpg', 'Hobbit que descubre coraje en una aventura inesperada.'),
 (39, 'Thorin Oakenshield', 'El Hobbit', 95, 75, 90, 70, 60, 85, 85, 180, 90, 130, 'assets/cuerpo/thorin_oakenshield.jpg', 'assets/batalla/thorin_oakenshield.jpg', 'assets/busto/thorin_oakenshield.jpg', 'Orgulloso rey enano obsesionado con recuperar Erebor.')
 
-ON CONFLICT (id) DO UPDATE SET nombre = EXCLUDED.nombre, saga = EXCLUDED.saga, fuerza = EXCLUDED.fuerza, inteligencia = EXCLUDED.inteligencia, resistencia = EXCLUDED.resistencia, velocidad = EXCLUDED.velocidad, agilidad = EXCLUDED.agilidad, carisma = EXCLUDED.carisma, alcance = EXCLUDED.alcance, altura = EXCLUDED.altura, peso = EXCLUDED.peso, experiencia = EXCLUDED.experiencia, imagen_cuerpo = EXCLUDED.imagen_cuerpo, imagen_batalla = EXCLUDED.imagen_batalla, imagen_busto = EXCLUDED.imagen_busto;
+ON CONFLICT (id) DO NOTHING;
 
 
-INSERT INTO usuario (id, nombre, email, contraseña, role)
+INSERT INTO usuario (id, nombre, email, contrasena, role)
 VALUES
   (1, 'admin', 'admin@example.com', 'admin123', 'ADMIN'),
   (2, 'user', 'user@example.com', 'user123', 'USER')
 ON CONFLICT (id) DO UPDATE SET
     nombre = EXCLUDED.nombre,
     email = EXCLUDED.email,
-    contraseña = EXCLUDED.contraseña,
+    contrasena = EXCLUDED.contrasena,
     role = EXCLUDED.role;

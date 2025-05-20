@@ -3,6 +3,7 @@ import { Component, OnDestroy } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { NavigationEnd, Router, RouterLink } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,7 @@ export class HeaderComponent implements OnDestroy {
   light: boolean = false;
   private routerSubscription: Subscription;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, public user: UserService) {
     this.routerSubscription = this.router.events
       .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {

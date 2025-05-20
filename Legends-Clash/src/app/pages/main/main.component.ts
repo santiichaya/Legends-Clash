@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PersonajeCartaComponent } from '../../components/personaje/personaje.component';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '../../services/api/api.service';
 import Personaje from '../../models/Personaje';
 
 @Component({

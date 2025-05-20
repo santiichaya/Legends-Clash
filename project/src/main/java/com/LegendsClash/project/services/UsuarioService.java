@@ -1,5 +1,6 @@
 package com.LegendsClash.project.services;
 
+import com.LegendsClash.project.DTO.LoginDTO;
 import com.LegendsClash.project.models.Usuario;
 import com.LegendsClash.project.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,10 @@ public class UsuarioService {
 
     public Usuario obtenerUsuarioPorEmail(String email) {
         return usuarioRepository.findByEmail(email);
+    }
+
+    public Usuario validarUsuario(LoginDTO usuario) {
+        return usuarioRepository.validarUsuario(usuario.getNombre(), usuario.getContrasena());
     }
 
     // Otros métodos para gestionar usuarios

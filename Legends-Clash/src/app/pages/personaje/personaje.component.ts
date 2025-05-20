@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { ApiService } from '../../services/api/api.service';
 import Personaje from '../../models/Personaje';
 import { Subscription } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
@@ -29,7 +29,6 @@ export class PersonajeComponent implements OnInit {
     this.api.getPersonaje(this.idPersonaje).subscribe({
       next: (data) => {
         this.personaje = data;
-        console.log(data);
         this.estilosSaga = this.personaje!.saga.toLowerCase().replace(/ /g, '');
         this.personaje!.nombre = this.personaje!.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       },

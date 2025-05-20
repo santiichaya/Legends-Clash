@@ -20,6 +20,5 @@ export class PersonajeCartaComponent implements OnInit {
   ngOnInit(): void {
     this.estilosSaga = this.personaje.saga.toLowerCase().replace(/ /g, '');
     this.personaje.nombre = this.personaje.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    console.log(this.personaje)
   }
 }
