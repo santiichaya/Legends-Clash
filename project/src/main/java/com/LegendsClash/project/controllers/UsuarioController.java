@@ -1,6 +1,6 @@
 package com.LegendsClash.project.controllers;
 
-import com.LegendsClash.project.DTO.LoginDTO;
+import com.LegendsClash.project.DTO.UserRegister;
 import com.LegendsClash.project.models.Usuario;
 import com.LegendsClash.project.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,8 @@ public class UsuarioController {
     private UsuarioService usuarioService;
 
     @PostMapping("/guardarUsuario")
-    public Usuario registrarUsuario(@RequestBody Usuario usuario) {
-        return usuarioService.guardarUsuario(usuario);
+    public Usuario registrarUsuario(@RequestBody UserRegister usuario) {
+        return usuarioService.save(usuario);
     }
 
     @GetMapping("/{id}")
@@ -31,8 +31,8 @@ public class UsuarioController {
         return usuarioService.obtenerUsuarioPorEmail(email);
     }
 
-    @PostMapping("/validarUsuario")
-    public Usuario validarUsuario(@RequestBody LoginDTO usuario) {
-        return usuarioService.validarUsuario(usuario);
-    }
+    //@PostMapping("/validarUsuario")
+    //    public Usuario validarUsuario(@RequestBody LoginDTO usuario) {
+    //        return usuarioService.validarUsuario(usuario);
+    //    }
 }

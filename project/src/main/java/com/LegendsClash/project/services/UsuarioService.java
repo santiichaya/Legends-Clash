@@ -1,32 +1,49 @@
 package com.LegendsClash.project.services;
 
-import com.LegendsClash.project.DTO.LoginDTO;
+import com.LegendsClash.project.DTO.UserRegister;
+import com.LegendsClash.project.models.UserAuthority;
 import com.LegendsClash.project.models.Usuario;
 import com.LegendsClash.project.repositories.UsuarioRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.LegendsClash.project.seguridad.PasswordEncoderConfig;
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service
+import java.util.List;
+import java.util.Optional;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class UsuarioService {
 
-    @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioRepository repo;
+    private PasswordEncoder passwordEncoder;
 
-    public Usuario guardarUsuario(Usuario usuario) {
-        return usuarioRepository.save(usuario);
+    public void UsuarioServicio(UsuarioRepository repository, PasswordEncoder passwordEncoder) {
+        this.repo = repository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public Usuario obtenerUsuarioPorId(Long id) {
-        return usuarioRepository.findById(id).orElse(null);
+    public Usuario findByUsername(String username) {
+        return this.repo.findByUsername(username);
     }
 
-    public Usuario obtenerUsuarioPorEmail(String email) {
-        return usuarioRepository.findByEmail(email);
+    public Usuario save(UserRegister userDTO) {
+        Usuario user = new Usuario(
+                null,
+                userDTO.username(),
+                passwordEncoder.encode(userDTO.password()),
+                userDTO.email(),
+                List.of(UserAuthority.WRITE)
+        );
+        return this.repo.save(user);
     }
-
-    public Usuario validarUsuario(LoginDTO usuario) {
-        return usuarioRepository.validarUsuario(usuario);
-    }
-
-    // Otros métodos para gestionar usuarios
 }
+

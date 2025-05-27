@@ -1,13 +1,17 @@
 
-CREATE TABLE IF NOT EXISTS usuario (
+CREATE TABLE usuario (
     id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL,
-    contrasena VARCHAR(100) NOT NULL,
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    username VARCHAR(255),
+    password VARCHAR(255),
+    email VARCHAR(255) UNIQUE,
     role role_enum DEFAULT 'USER'
 );
 
+CREATE TABLE IF NOT EXISTS usuario_authorities (
+    usuario_id INTEGER NOT NULL,
+    authorities VARCHAR(255),
+    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS personaje (
     id SERIAL PRIMARY KEY,

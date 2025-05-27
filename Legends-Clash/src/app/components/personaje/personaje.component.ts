@@ -12,6 +12,7 @@ import { RouterLink } from '@angular/router';
 export class PersonajeCartaComponent implements OnInit {
   @Input() personaje: Personaje = {} as Personaje;
   estilosSaga: string;
+  stats: string[] = ["fuerza", "inteligencia", "resistencia", "velocidad", "agilidad", "carisma", "alcance", "defensa"];
 
   constructor() {
     this.estilosSaga = "";
