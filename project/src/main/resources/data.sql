@@ -58,12 +58,19 @@ VALUES
 ON CONFLICT (id) DO NOTHING;
 
 
-INSERT INTO usuario (id, nombre, email, contrasena, role)
+INSERT INTO usuario (id, username, email, password)
 VALUES
-  (1, 'admin', 'admin@example.com', 'admin123', 'ADMIN'),
-  (2, 'user', 'user@example.com', 'user123', 'USER')
+  (1, 'admin', 'admin@example.com', '$2a$10$UYHKNz45A49Hq03dCjPrZO7cQbkKqPzv7kcRqRZsWQERDDk4IGEMe'),
+  (2, 'user', 'user@example.com', '$2a$10$olJ6QGJyN6xQ9Zm1OEGxgu3Vy2bs6OLHsPqLBX6u1eWZmT3y8H/Y6')
 ON CONFLICT (id) DO UPDATE SET
-    nombre = EXCLUDED.nombre,
+    username = EXCLUDED.username,
     email = EXCLUDED.email,
-    contrasena = EXCLUDED.contrasena,
-    role = EXCLUDED.role;
+    password = EXCLUDED.password;
+
+
+-- Luego inserta los roles
+INSERT INTO usuario_authorities (usuario_id, authorities)
+VALUES
+    (1, 'ROLE_ADMIN'),
+    (2, 'ROLE_USER')
+ON CONFLICT (usuario_id, authorities) DO NOTHING;

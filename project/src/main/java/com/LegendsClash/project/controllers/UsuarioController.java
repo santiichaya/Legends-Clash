@@ -21,16 +21,6 @@ public class UsuarioController {
         return usuarioService.save(usuario);
     }
 
-    @GetMapping("/{id}")
-    public Usuario obtenerUsuario(@PathVariable Long id) {
-        return usuarioService.obtenerUsuarioPorId(id);
-    }
-
-    @GetMapping("/email/{email}")
-    public Usuario obtenerUsuarioPorEmail(@PathVariable String email) {
-        return usuarioService.obtenerUsuarioPorEmail(email);
-    }
-
     //@PostMapping("/validarUsuario")
     //    public Usuario validarUsuario(@RequestBody LoginDTO usuario) {
     //        return usuarioService.validarUsuario(usuario);

@@ -10,28 +10,30 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
+@Service
 public class UsuarioService {
 
-    private UsuarioRepository repo;
-    private PasswordEncoder passwordEncoder;
+    private final UsuarioRepository repo;
+    private final PasswordEncoder passwordEncoder;
 
-    public void UsuarioServicio(UsuarioRepository repository, PasswordEncoder passwordEncoder) {
+    public UsuarioService(UsuarioRepository repository, PasswordEncoder passwordEncoder) {
         this.repo = repository;
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Usuario findByUsername(String username) {
+    public Optional<Usuario> findByUsername(String username) {
         return this.repo.findByUsername(username);
     }
 
@@ -41,7 +43,15 @@ public class UsuarioService {
                 userDTO.username(),
                 passwordEncoder.encode(userDTO.password()),
                 userDTO.email(),
-                List.of(UserAuthority.WRITE)
+                List.of(UserAuthority.ROLE_USER)
+        );
+
+        Usuario user1 = new Usuario(
+                null,
+                userDTO.username(),
+                passwordEncoder.encode(userDTO.password()),
+                userDTO.email(),
+                List.of(UserAuthority.ROLE_USER)
         );
         return this.repo.save(user);
     }

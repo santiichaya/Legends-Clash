@@ -11,11 +11,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api")
 public class AuthController {
     @Autowired
     private UsuarioService userService;
@@ -36,9 +35,14 @@ public class AuthController {
         Authentication authDTO = new UsernamePasswordAuthenticationToken(loginDTO.username(), loginDTO.password());
 
         Authentication authentication = this.authManager.authenticate(authDTO);
+
+        Authentication authentication = this.authManager.authenticate(authDTO);
         Usuario user = (Usuario) authentication.getPrincipal();
 
         String token = this.jwtTokenProvider.generateToken(authentication);
+        LoginResponse a = new LoginResponse(user.getUsername(),
+                user.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList(),
+                token);
 
         return new LoginResponse(user.getUsername(),
                 user.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList(),

@@ -14,7 +14,6 @@ import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 public class Usuario implements UserDetails {
 
@@ -30,6 +29,10 @@ public class Usuario implements UserDetails {
     private String email;
 
 
+    @ElementCollection(fetch = FetchType.EAGER)
+    @Enumerated(EnumType.STRING)
+    private List<UserAuthority> authorities= new ArrayList<>();
+
     public Usuario(Long id, String username, String password, String email, List<UserAuthority> authorities) {
         this.id = id;
         this.username = username;
@@ -38,10 +41,24 @@ public class Usuario implements UserDetails {
         this.authorities = authorities;
     }
 
+    public Usuario() {
+    }
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Enumerated(EnumType.STRING)
-    private List<UserAuthority> authorities= new ArrayList<>();
+    public Long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -66,22 +83,6 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public void setId(Long id) {

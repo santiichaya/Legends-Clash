@@ -1,16 +1,17 @@
 
-CREATE TABLE usuario (
+CREATE TABLE IF NOT EXISTS usuario (
     id SERIAL PRIMARY KEY,
     username VARCHAR(255),
     password VARCHAR(255),
-    email VARCHAR(255) UNIQUE,
-    role role_enum DEFAULT 'USER'
+    email VARCHAR(255) UNIQUE
 );
 
 CREATE TABLE IF NOT EXISTS usuario_authorities (
     usuario_id INTEGER NOT NULL,
-    authorities VARCHAR(255),
-    FOREIGN KEY (usuario_id) REFERENCES usuario(id) ON DELETE CASCADE
+    authorities VARCHAR(255) DEFAULT 'ROLE_USER',
+    CONSTRAINT fk_usuario FOREIGN KEY (usuario_id) REFERENCES usuario(id),
+        CONSTRAINT usuario_authorities_unique UNIQUE (usuario_id, authorities)
+
 );
 
 CREATE TABLE IF NOT EXISTS personaje (

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Personaje from '../../models/Personaje';
-import LoginDTO from '../../models/LoginDTO';
+import LoginDTO from '../../models/LoginRequest';
 import Usuario from '../../models/Usuario';
 import Batalla from '../../models/Batalla';
 import PersonajeUpdate from '../../models/PersonajeUpdate';
