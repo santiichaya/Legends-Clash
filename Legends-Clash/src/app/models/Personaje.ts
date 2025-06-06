@@ -15,5 +15,6 @@ export default interface Personaje {
     experiencia: number,
     imagenCuerpo: string,
     imagenBatalla: string,
-    imagenBusto: string
+    imagenBusto: string,
+    [key: string]: any
 }

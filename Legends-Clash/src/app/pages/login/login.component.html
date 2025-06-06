@@ -1,21 +1,24 @@
-<div class="flex justify-center items-center h-full">
+<div class="flex justify-center items-center h-full flex-col">
     <form [formGroup]="loginform!" (submit)="login()"
-        class="bg-[var(--color-primary)] h-4/6 w-[40%] flex flex-wrap justify-around flex-col text-white rounded-2xl overflow-hidden">
+        class="bg-[var(--color-primary)] h-4/6 w-[40%] flex flex-wrap justify-between flex-col text-white rounded-2xl overflow-hidden">
         <div class="h-[20%] p-4 border-b-4 border-[var(--color-secondary)]">
-            <p class="text-4xl">Login</p>
+            <p class="text-4xl">Log in</p>
         </div>
+        @if (errorLogin){
+          <p class="w-full h-[5%] p-0 m-0 text-red-500 text-center">Usuario o contraseña incorrectos</p>
+        }
         <div class="w-full h-[30%]">
             <fieldset class="h-full w-full flex items-center flex-wrap justify-between p-4 text-2xl">
-                <label for="nombre">Usuario: </label>
-                <input type="text" id="nombre" formControlName="nombre"
+                <label for="username">Usuario: </label>
+                <input type="text" id="username" formControlName="username"
                     class="border-2 border-[var(--color-secondary)] outline-none h-12 p-2 rounded-lg w-[60%] text-xl" />
             </fieldset>
         </div>
         <div class="w-full h-[30%]">
             <fieldset class="h-full w-full flex items-center flex-wrap justify-between p-4 text-2xl">
-                <label for="contrasena">Contraseña: </label>
+                <label for="password">Contraseña: </label>
                 <div class="relative w-[60%]">
-                    <input [type]="password ? 'password' : 'text'" id="contrasena" formControlName="contrasena"
+                    <input [type]="password ? 'password' : 'text'" id="password" formControlName="password"
                         class="border-2 border-[var(--color-secondary)] outline-none h-12 p-2 rounded-lg w-full text-xl pr-12" />
 
                     <button type="button" (mousedown)="toggleInput(false)" (mouseup)="toggleInput(true)"
@@ -30,11 +33,12 @@
                 </div>
             </fieldset>
         </div>
-        <div class="w-full h-[20%]">
+        <div class="w-full h-[15%]">
             <fieldset class="h-full w-full flex justify-center items-center p-4 text-2xl">
                 <button type="submit" class="bg-[var(--color-secondary)] border-black border-4 rounded-lg p-4 mb-4">Log
                     In</button>
             </fieldset>
         </div>
     </form>
+    <p class="pt-4 text-white">¿No tienes cuenta? <a [routerLink]="'/register'" class="underline">Registrate</a></p>
 </div>

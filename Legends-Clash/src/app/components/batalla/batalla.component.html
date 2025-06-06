@@ -1,1 +1,17 @@
-<p>batalla works!</p>
+<div class="bg-gray-500 p-4 rounded-lg flex flex-wrap text-center justify-around">
+  <p class="w-full text-2xl font-bold">{{ batalla.nombre }}</p>
+  <div class="w-[40%] flex flex-wrap">
+    <p class="w-full">{{ batalla.equipo1.nombreEquipo }}</p>
+    <div class="w-1/4"><img [src]="batalla.equipo1.personajes[0].imagenBusto" class="">{{ batalla.equipo1.personajes[0].nombre }}</div>
+    <div class="w-1/4"><img [src]="batalla.equipo1.personajes[1].imagenBusto" class="">{{ batalla.equipo1.personajes[1].nombre }}</div>
+    <div class="w-1/4"><img [src]="batalla.equipo1.personajes[2].imagenBusto" class="">{{ batalla.equipo1.personajes[2].nombre }}</div>
+    <div class="w-1/4"><img [src]="batalla.equipo1.personajes[3].imagenBusto" class="">{{ batalla.equipo1.personajes[3].nombre }}</div>
+  </div>
+  <div class="w-[40%] flex flex-wrap">
+    <p class="w-full">{{ batalla.equipo2.nombreEquipo }}</p>
+    <div class="w-1/4"><img [src]="batalla.equipo2.personajes[0].imagenBusto" class="">{{ batalla.equipo2.personajes[0].nombre }}</div>
+    <div class="w-1/4"><img [src]="batalla.equipo2.personajes[1].imagenBusto" class="">{{ batalla.equipo2.personajes[1].nombre }}</div>
+    <div class="w-1/4"><img [src]="batalla.equipo2.personajes[2].imagenBusto" class="">{{ batalla.equipo2.personajes[2].nombre }}</div>
+    <div class="w-1/4"><img [src]="batalla.equipo2.personajes[3].imagenBusto" class="">{{ batalla.equipo2.personajes[3].nombre }}</div>
+  </div>
+</div>

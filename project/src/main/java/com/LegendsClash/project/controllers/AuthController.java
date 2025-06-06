@@ -9,6 +9,7 @@ import com.LegendsClash.project.services.UsuarioService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -33,16 +34,10 @@ public class AuthController {
     @PostMapping("/auth/login")
     public LoginResponse login(@RequestBody LoginRequest loginDTO){
         Authentication authDTO = new UsernamePasswordAuthenticationToken(loginDTO.username(), loginDTO.password());
-
-        Authentication authentication = this.authManager.authenticate(authDTO);
-
         Authentication authentication = this.authManager.authenticate(authDTO);
         Usuario user = (Usuario) authentication.getPrincipal();
 
         String token = this.jwtTokenProvider.generateToken(authentication);
-        LoginResponse a = new LoginResponse(user.getUsername(),
-                user.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList(),
-                token);
 
         return new LoginResponse(user.getUsername(),
                 user.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList(),

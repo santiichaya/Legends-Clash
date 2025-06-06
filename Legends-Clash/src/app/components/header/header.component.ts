@@ -32,4 +32,9 @@ export class HeaderComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.routerSubscription.unsubscribe();
   }
+
+  logout() {
+    this.user.logout();
+    this.router.navigate(['/']);
+  }
 }

@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import Batalla from '../../models/Batalla';
+import { ApiService } from '../../services/api/api.service';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-batalla',
@@ -7,11 +9,15 @@ import Batalla from '../../models/Batalla';
   templateUrl: './batalla.component.html',
   styleUrl: './batalla.component.css'
 })
-export class BatallaComponent {
+export class BatallaComponent implements OnInit{
 
-  @Input() batalla: Batalla = {} as Batalla;
+  @Input() batalla: any = {};
 
-  constructor () {
-    
+  constructor (public api: ApiService, public userService: UserService) {
+
+  }
+
+  ngOnInit(): void {
+    console.log(this.batalla);
   }
 }

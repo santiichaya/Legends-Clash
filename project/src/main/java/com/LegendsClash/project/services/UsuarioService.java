@@ -45,14 +45,6 @@ public class UsuarioService {
                 userDTO.email(),
                 List.of(UserAuthority.ROLE_USER)
         );
-
-        Usuario user1 = new Usuario(
-                null,
-                userDTO.username(),
-                passwordEncoder.encode(userDTO.password()),
-                userDTO.email(),
-                List.of(UserAuthority.ROLE_USER)
-        );
         return this.repo.save(user);
     }
 }

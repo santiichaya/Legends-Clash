@@ -3,10 +3,11 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatIconModule } from '@angular/material/icon';
 import { ApiService } from '../../services/api/api.service';
 import { UserService } from '../../services/user/user.service';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule, MatIconModule],
+  imports: [ReactiveFormsModule, MatIconModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -14,23 +15,30 @@ export class LoginComponent implements OnInit {
 
   loginform: FormGroup | null;
   password = true;
+  errorLogin = false;
 
-  constructor(public api: ApiService, public user: UserService) {
+  constructor(public api: ApiService, public user: UserService, public router: Router) {
     this.loginform = null;
   }
 
   ngOnInit(): void {
     this.loginform = new FormGroup({
-      nombre: new FormControl('', Validators.required),
-      contrasena: new FormControl('', Validators.required)
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
     })
   }
 
   login() {
-    let usuario = this.api.validarUsuario(this.loginform?.value);
+    let usuario = this.user.login(this.loginform?.value);
     usuario.subscribe({
-      next: (data) => this.user.setUsuario(data),
-      error: (e) => console.log(e)
+      next: (data) => {
+        console.log(data);
+        this.router.navigate(["/"])
+      },
+      error: (e) => {
+        console.log(e);
+        this.errorLogin = true
+      }
     })
   }
 

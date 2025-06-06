@@ -1,4 +1,4 @@
 export default interface LoginRequest {
-    email: string,
-    contrasena: string
+    username: string,
+    password: string
 }

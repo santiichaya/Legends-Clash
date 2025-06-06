@@ -1,4 +1,5 @@
-export default interface LoginRequest {
-    email: string,
-    contrasena: string
+export default interface LoginResponse {
+    username: string,
+    authorities: [],
+    token: string
 }

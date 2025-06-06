@@ -113,6 +113,10 @@ app-login {
   height: 100%;
 }
 
+app-register {
+  height: 100%;
+}
+
 :root {
   --color-marvel: #94181c;
   --color-dc: #000000;

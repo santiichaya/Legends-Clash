@@ -5,6 +5,9 @@ import LoginDTO from '../../models/LoginRequest';
 import Usuario from '../../models/Usuario';
 import Batalla from '../../models/Batalla';
 import PersonajeUpdate from '../../models/PersonajeUpdate';
+import LoginRequest from '../../models/LoginRequest';
+import LoginResponse from '../../models/loginResponse';
+import registerUsuario from '../../models/RegisterUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -27,13 +30,11 @@ export class ApiService {
     return this.http.get<Batalla[]>(`${this.API_URL}/api/batallas/getBatallas`);
   }
 
-  validarUsuario(usuario: LoginDTO) {
-    return this.http.post<Usuario>(`${this.API_URL}/api/usuarios/validarUsuario`, usuario);
+  registerUsuario(usuario: registerUsuario) {
+    return this.http.post<LoginResponse>(`${this.API_URL}/api/auth/register`, usuario);
   }
 
   updatePersonaje (personaje: PersonajeUpdate) {
-    console.log("AAAAA")
-    console.log(`${this.API_URL}/api/personajes/updatePersonaje`);
     return this.http.patch<Personaje>(`${this.API_URL}/api/personajes/updatePersonaje`, personaje);
   }
 }

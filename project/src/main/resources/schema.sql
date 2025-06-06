@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS personajes_de_equipo (
 
 CREATE TABLE IF NOT EXISTS batalla (
     id SERIAL PRIMARY KEY,
+    nombre VARCHAR(50),
     id_equipo_1 INT,
     id_equipo_2 INT,
     FOREIGN KEY (id_equipo_1) REFERENCES equipo(id),

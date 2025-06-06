@@ -9,6 +9,8 @@ public class Batalla {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String nombre;
+
     @ManyToOne
     @JoinColumn(name = "id_equipo_1", nullable = false)
     private Equipo equipo1;
@@ -40,5 +42,13 @@ public class Batalla {
 
     public void setEquipo2(Equipo equipo2) {
         this.equipo2 = equipo2;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 }

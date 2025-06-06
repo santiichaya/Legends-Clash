@@ -45,7 +45,6 @@ export class MainComponent implements OnInit {
         error: (e) => console.log(e)
       });
     }
-    console.log(this.tipo);
   }
 }
 

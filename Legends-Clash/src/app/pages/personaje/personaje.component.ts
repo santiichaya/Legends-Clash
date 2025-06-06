@@ -6,6 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgIf, NgStyle } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import PersonajeUpdate from '../../models/PersonajeUpdate';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-personaje',
@@ -19,8 +20,9 @@ export class PersonajeComponent implements OnInit {
   idPersonaje: string | null = "";
   estilosSaga: string = "";
   actualizado: boolean = false;
+  stats: any = ["fuerza", "inteligencia", "resistencia", "velocidad", "agilidad", "carisma", "alcance", "experiencia"];
 
-  constructor(private api: ApiService, private route: ActivatedRoute) {
+  constructor(private api: ApiService, private route: ActivatedRoute, public userService: UserService) {
     this.personaje = null;
     this.routeSubscription = null;
   }
@@ -39,13 +41,15 @@ export class PersonajeComponent implements OnInit {
     });
   }
 
-  add(atributo: keyof Personaje) {
-    this.personaje![atributo]++;
+  add(atributo: string) {
+    const atr = atributo as keyof Personaje;
+    this.personaje![atr]++;
     this.actualizado = true;
   }
 
-  subtract(atributo: keyof Personaje) {
-    this.personaje![atributo]--;
+  subtract(atributo: string) {
+    const atr = atributo as keyof Personaje;
+    this.personaje![atr]--;
     this.actualizado = true;
   }
 
