@@ -1,11 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-add',
-  imports: [],
+  imports: [MatIconModule, RouterLink],
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css'
+  styleUrl: './add.component.css',
 })
 export class AddComponent {
 
+  constructor () {
+
+  }
 }

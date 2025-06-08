@@ -7,10 +7,11 @@ import { Router } from '@angular/router';
 import Batalla from '../../models/Batalla';
 import { BatallaComponent } from "../../components/batalla/batalla.component";
 import { MatIconModule } from '@angular/material/icon';
+import { AddComponent } from "../../components/add/add.component";
 
 @Component({
   selector: 'app-main',
-  imports: [PersonajeCartaComponent, BatallaComponent, MatIconModule],
+  imports: [PersonajeCartaComponent, BatallaComponent, MatIconModule, AddComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.css'
 })

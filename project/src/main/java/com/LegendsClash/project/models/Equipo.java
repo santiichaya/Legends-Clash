@@ -2,6 +2,7 @@ package com.LegendsClash.project.models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,17 +14,13 @@ public class Equipo {
 
     private String nombreEquipo;
 
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
-
     @ManyToMany
     @JoinTable(
             name = "personajes_de_equipo",
-            joinColumns = @JoinColumn(name = "id_equipo"),
-            inverseJoinColumns = @JoinColumn(name = "id_personaje")
+            joinColumns = @JoinColumn(name = "equipo_id"),
+            inverseJoinColumns = @JoinColumn(name = "personaje_id")
     )
-    private List<Personaje> personajes;
+    private List<Personaje> personajes = new ArrayList<>();
 
     // Getters y Setters
     public Long getId() {
@@ -40,14 +37,6 @@ public class Equipo {
 
     public void setNombreEquipo(String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public List<Personaje> getPersonajes() {

@@ -1,0 +1,106 @@
+<form [formGroup]="form" (submit)="addBatalla()">
+  <fieldset>
+    <label for="nombre">Nombre: </label>
+    <input type="text" id="nombre" formControlName="nombre" />
+  </fieldset>
+  <div>
+    <fieldset>
+      <label for="nombreEquipo1">Nombre del primer equipo: </label>
+      <input
+        type="text"
+        id="nombreEquipo1"
+        formControlName="nombreEquipo1"
+      />
+    </fieldset>
+    <fieldset>
+      <label for="personaje11">Primer personaje: </label>
+      <select formControlName="personaje11" id="personaje11">
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="personaje12">Segundo personaje: </label>
+      <select formControlName="personaje12" id="personaje12">
+        <option [value]="null"></option>
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="personaje13">Tercer personaje: </label>
+      <select formControlName="personaje13" id="personaje13">
+        <option [value]="null"></option>
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="personaje14">Cuarto personaje: </label>
+      <select formControlName="personaje14" id="personaje14">
+        <option [value]="null"></option>
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+  </div>
+
+  <div>
+    <fieldset>
+      <label for="nombreEquipo2">Nombre del segundo equipo: </label>
+      <input
+        type="text"
+        id="nombreEquipo2"
+        formControlName="nombreEquipo2"
+      />
+    </fieldset>
+    <fieldset>
+      <label for="personaje21">Primer personaje: </label>
+      <select formControlName="personaje21" id="personaje21">
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="personaje22">Segundo personaje: </label>
+      <select formControlName="personaje22" id="personaje22">
+        <option [value]="null"></option>
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="personaje23">Tercer personaje: </label>
+      <select formControlName="personaje23" id="personaje23">
+        <option [value]="null"></option>
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+    <fieldset>
+      <label for="personaje24">Cuarto personaje: </label>
+      <select formControlName="personaje24" id="personaje24">
+        <option [value]="null"></option>
+        <option *ngFor="let personaje of personajes" [value]="personaje.id">
+          {{ personaje.nombre }}
+        </option>
+      </select>
+    </fieldset>
+  </div>
+
+  <fieldset class="h-full w-full flex justify-center items-center p-4 text-2xl">
+    <button
+      type="submit"
+      class="bg-[var(--color-secondary)] border-black border-4 rounded-lg p-4 mb-4"
+    >
+      Crear Batalla
+    </button>
+  </fieldset>
+</form>

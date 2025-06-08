@@ -1,9 +1,9 @@
 package com.LegendsClash.project.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Personaje {
@@ -29,6 +29,9 @@ public class Personaje {
     private int altura;
     private int peso;
     private int experiencia;
+
+    @ManyToMany(mappedBy = "personajes")
+    private List<Equipo> equipos = new ArrayList<>();
 
     // Getters y Setters
     public Long getId() {

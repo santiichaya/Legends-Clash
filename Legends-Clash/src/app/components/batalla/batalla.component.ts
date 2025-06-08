@@ -2,10 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import Batalla from '../../models/Batalla';
 import { ApiService } from '../../services/api/api.service';
 import { UserService } from '../../services/user/user.service';
+import { PersonajeCartaComponent } from "../personaje/personaje.component";
 
 @Component({
   selector: 'app-batalla',
-  imports: [],
+  imports: [PersonajeCartaComponent],
   templateUrl: './batalla.component.html',
   styleUrl: './batalla.component.css'
 })

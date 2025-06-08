@@ -3,6 +3,7 @@ import { MainComponent } from './pages/main/main.component';
 import { PersonajeComponent } from './pages/personaje/personaje.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AddBatallaComponent } from './pages/add-batalla/add-batalla.component';
 
 export const routes: Routes = [
     {path: "personajes", component: MainComponent, data: {name: "personajes", title: "Legends Clash"}},
@@ -10,5 +11,6 @@ export const routes: Routes = [
     {path: "personaje/:id", component: PersonajeComponent, data: {name: "personaje"}},
     {path: "login", component: LoginComponent, data: {name: "login"}},
     {path: "register", component: RegisterComponent, data: {name: "register"}},
+    {path: "addBatalla", component: AddBatallaComponent, data: {name: "addBatalla"}},
     {path: "", redirectTo: "personajes", pathMatch: 'full'},
 ];

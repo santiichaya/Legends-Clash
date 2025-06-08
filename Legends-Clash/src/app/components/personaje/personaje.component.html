@@ -1,22 +1,47 @@
-<div class="w-full rounded-2xl overflow-hidden h-full"
-    [ngStyle]="{
-       'background-color': 'var(--color-' + estilosSaga + ')',
-       'font-family': 'var(--font-' + estilosSaga + ')',
-       'color': 'var(--color-font' + estilosSaga + ')'
-     }">
-    <a class="flex flex-wrap flex-col" [routerLink]="`/personaje/${personaje.id}`">
-        <div class="w-full">
-            <img [src]="personaje.imagenBusto" class="w-full aspect-square rounded-t-2xl border-4"
-            [ngStyle]="{
-       'border-color': 'var(--color-secondary' + estilosSaga + ')'
-     }"/>
-        </div>
-        <div class="w-full p-2 pl-2 text-xl">
-            <p class="w-full text-2xl font-bold">{{ personaje.nombre }}</p>
-            <p class="text-2xl">{{ personaje.saga }}</p>
-            <p>Altura: {{ personaje.altura }}cm</p>
-            <p>Peso: {{ personaje.peso }}kg</p>
-        </div>
-
-    </a>
+<div
+  class="w-full rounded-2xl overflow-hidden h-full"
+  [ngStyle]="{
+    'background-color': 'var(--color-' + estilosSaga + ')',
+    'font-family': 'var(--font-' + estilosSaga + ')',
+    color: 'var(--color-font' + estilosSaga + ')'
+  }"
+>
+  @if(completo) {
+  <a class="flex flex-wrap flex-col" [routerLink]="`/personaje/${personaje.id}`">
+    <div class="w-full">
+      <img
+        [src]="personaje.imagenBusto"
+        class="w-full aspect-square rounded-t-2xl border-4"
+        [ngStyle]="{
+          'border-color': 'var(--color-secondary' + estilosSaga + ')'
+        }"
+      />
+    </div>
+    <div class="w-full p-2 pl-2 text-xl">
+      <p [class]="completo ? 'text-2xl font-bold' : ' text-sm'" class="w-full">
+        {{ personaje.nombre }}
+      </p>
+      @if (completo) {
+        <p class="text-2xl">{{ personaje.saga }}</p>
+        <p>Altura: {{ personaje.altura }}cm</p>
+        <p>Peso: {{ personaje.peso }}kg</p>
+      }
+    </div>
+  </a>
+} @else {
+  <div class="w-full">
+    <img
+      [src]="personaje.imagenBusto"
+      class="w-full aspect-square rounded-t-2xl border-4"
+      [ngStyle]="{
+        'border-color': 'var(--color-secondary' + estilosSaga + ')'
+      }"
+    />
+  </div>
+  <div class="w-full p-2 pl-2 text-xl">
+    <p [class]="completo ? 'text-2xl font-bold' : ' text-sm'" class="w-full">
+      {{ personaje.nombre }}
+    </p>
+  </div>
+}
 </div>

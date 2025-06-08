@@ -1,5 +1,6 @@
 package com.LegendsClash.project.controllers;
 
+import com.LegendsClash.project.DTO.CrearBatallaDTO;
 import com.LegendsClash.project.models.Batalla;
 import com.LegendsClash.project.services.BatallaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,6 @@ public class BatallaController {
     @Autowired
     private BatallaService batallaService;
 
-    @PostMapping
-    public Batalla crearBatalla(@RequestBody Batalla batalla) {
-        return batallaService.guardarBatalla(batalla);
-    }
-
     @GetMapping("/{id}")
     public Batalla obtenerBatalla(@PathVariable Long id) {
         return batallaService.obtenerBatallaPorId(id);
@@ -29,4 +25,11 @@ public class BatallaController {
     public List<Batalla> getBatallas() {
         return batallaService.getBatallas();
     }
+
+    @PostMapping
+    public Batalla crearBatalla(@RequestBody CrearBatallaDTO batalla) {
+        System.out.println(batalla);
+        return batallaService.guardarBatalla(batalla);
+    }
+
 }
