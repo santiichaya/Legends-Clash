@@ -13,6 +13,7 @@ import { PersonajeCartaComponent } from "../personaje/personaje.component";
 export class BatallaComponent implements OnInit{
 
   @Input() batalla: any = {};
+  votado = false;
 
   constructor (public api: ApiService, public userService: UserService) {
 
