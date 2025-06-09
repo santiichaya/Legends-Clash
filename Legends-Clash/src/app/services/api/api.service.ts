@@ -10,6 +10,7 @@ import LoginResponse from '../../models/loginResponse';
 import registerUsuario from '../../models/RegisterUsuario';
 import CreateBatallaDTO from '../../models/CreateBatallaDTO';
 import CreateBatallaForm from '../../models/CreateBatallaForm';
+import Voto from '../../models/Voto';
 
 @Injectable({
   providedIn: 'root',
@@ -66,7 +67,14 @@ export class ApiService {
       batalla.personaje23,
       batalla.personaje24,
     ];
-    console.log(bat);
     return this.http.post<Batalla>(`${this.API_URL}/api/batallas`, bat);
+  }
+
+  getVotos(id_batalla: number) {
+    return this.http.get<Voto[]>(`${this.API_URL}/api/votos/${id_batalla}`);
+  }
+
+  getVotoUsuario(id_batalla: number) {
+    return this.http.get<Voto[]>(`${this.API_URL}/api/votos/votoUsuario/${id_batalla}`, {withCredentials: true});
   }
 }

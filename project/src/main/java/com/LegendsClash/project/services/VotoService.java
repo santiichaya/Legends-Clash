@@ -15,9 +15,7 @@ public class VotoService {
         return votoRepository.save(voto);
     }
 
-    public Voto obtenerVotoPorId(Long id) {
-        return votoRepository.findById(id).orElse(null);
+    public Voto[] obtenerVotoPorIdBatalla(Long id) {
+        return votoRepository.obtenerPorIdBatalla(id);
     }
-
-    // Otros métodos para gestionar votos
 }

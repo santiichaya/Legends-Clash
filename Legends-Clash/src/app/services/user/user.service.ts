@@ -51,7 +51,6 @@ export class UserService {
             'Strict'
           );
           this.loadUserData();
-          console.log(this.cookie.get(this.USER_ROLES))
         })
       );
   }

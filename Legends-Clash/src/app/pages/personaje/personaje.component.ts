@@ -36,6 +36,7 @@ export class PersonajeComponent implements OnInit {
         this.personaje = data;
         this.estilosSaga = this.personaje!.saga.toLowerCase().replace(/ /g, '');
         this.personaje!.nombre = this.personaje!.nombre.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        this.personaje!.descripcion = this.personaje!.descripcion.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       },
       error: (e) => console.log(e)
     });

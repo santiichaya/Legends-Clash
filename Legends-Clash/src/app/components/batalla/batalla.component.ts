@@ -21,5 +21,11 @@ export class BatallaComponent implements OnInit{
 
   ngOnInit(): void {
     console.log(this.batalla);
+    this.api.getVotos(this.batalla.id).subscribe({
+      next: (data) => console.log(data),
+      error: (e) => console.log(e),
+    });
+
+    this.api.getVotoUsuario(this.batalla.id);
   }
 }

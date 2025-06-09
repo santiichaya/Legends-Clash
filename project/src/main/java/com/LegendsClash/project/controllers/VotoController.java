@@ -20,7 +20,7 @@ public class VotoController {
     }
 
     @GetMapping("/{id}")
-    public Voto obtenerVoto(@PathVariable Long id) {
-        return votoService.obtenerVotoPorId(id);
+    public Voto[] obtenerVoto(@PathVariable Long id) {
+        return votoService.obtenerVotoPorIdBatalla(id);
     }
 }

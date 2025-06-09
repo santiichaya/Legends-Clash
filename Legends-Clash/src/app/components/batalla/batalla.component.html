@@ -6,7 +6,7 @@
       <div class="w-[23%] h-[90%]"><app-personaje [personaje]="personaje" [completo]="false"/></div>
     }
   </div>
-  <div class="border-2 w-1 h-60"></div>
+  <div class="border-2 w-1 h-60 bg-black"></div>
   <div class="w-[45%] flex flex-wrap justify-around">
     <p class="w-full">{{ batalla.equipo2.nombreEquipo }}</p>
     @for (personaje of batalla.equipo2.personajes; track $index) {
