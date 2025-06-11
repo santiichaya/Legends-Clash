@@ -28,7 +28,6 @@ public class BatallaController {
 
     @PostMapping
     public Batalla crearBatalla(@RequestBody CrearBatallaDTO batalla) {
-        System.out.println(batalla);
         return batallaService.guardarBatalla(batalla);
     }
 

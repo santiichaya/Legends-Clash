@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import Personaje from '../../models/Personaje';
 import LoginDTO from '../../models/LoginRequest';
@@ -11,6 +11,7 @@ import registerUsuario from '../../models/RegisterUsuario';
 import CreateBatallaDTO from '../../models/CreateBatallaDTO';
 import CreateBatallaForm from '../../models/CreateBatallaForm';
 import Voto from '../../models/Voto';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -18,7 +19,7 @@ import Voto from '../../models/Voto';
 export class ApiService {
   readonly API_URL = 'http://localhost:8080';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   getPersonajes() {
     return this.http.get<Personaje[]>(
@@ -67,14 +68,41 @@ export class ApiService {
       batalla.personaje23,
       batalla.personaje24,
     ];
+    console.log(bat);
     return this.http.post<Batalla>(`${this.API_URL}/api/batallas`, bat);
   }
 
   getVotos(id_batalla: number) {
-    return this.http.get<Voto[]>(`${this.API_URL}/api/votos/${id_batalla}`);
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.userService.getToken()}`,
+    });
+
+    return this.http.get<Voto[]>(`${this.API_URL}/api/votos/${id_batalla}`, {
+      headers,
+      withCredentials: true,
+    });
   }
 
   getVotoUsuario(id_batalla: number) {
-    return this.http.get<Voto[]>(`${this.API_URL}/api/votos/votoUsuario/${id_batalla}`, {withCredentials: true});
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.userService.getToken()}`,
+    });
+
+    return this.http.get<Voto>(`${this.API_URL}/api/votos/votoUsuario/${id_batalla}`, {
+      headers,
+      withCredentials: true,
+    });
+  }
+
+  votar(id_equipo: number, id_batalla: number) {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.userService.getToken()}`,
+    });
+    const body = {"id_equipo": id_equipo, "id_batalla": id_batalla}
+
+    return this.http.post<Voto>(`${this.API_URL}/api/votos`, body, {
+      headers,
+      withCredentials: true,
+    });
   }
 }

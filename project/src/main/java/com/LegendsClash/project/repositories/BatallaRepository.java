@@ -11,6 +11,13 @@ public interface BatallaRepository extends JpaRepository<Batalla, Long> {
 
     @Query("""
             SELECT b FROM Batalla b
+            ORDER BY b.id DESC
             """)
     List<Batalla> getBatallas();
+
+    @Query("""
+            SELECT b FROM Batalla b
+            WHERE b.id = :id
+            """)
+    Batalla getBatallaById(Long id);
 }

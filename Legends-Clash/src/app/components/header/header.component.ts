@@ -10,7 +10,6 @@ import { UserService } from '../../services/user/user.service';
   standalone: true,
   imports: [MatIconModule, NgClass, RouterLink],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnDestroy {
   light: boolean = false;

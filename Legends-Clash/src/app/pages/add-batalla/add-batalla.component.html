@@ -1,104 +1,192 @@
-<form [formGroup]="form" (submit)="addBatalla()">
-  <fieldset>
+<form
+  [formGroup]="form"
+  (submit)="addBatalla()"
+  class="bg-[var(--color-terciary)] m-12 p-8 rounded-2xl"
+>
+  <fieldset class="text-xl text-center mb-8">
     <label for="nombre">Nombre: </label>
-    <input type="text" id="nombre" formControlName="nombre" />
+    <input
+      type="text"
+      class="font-bold border-b-2"
+      id="nombre"
+      formControlName="nombre"
+    />
   </fieldset>
-  <div>
-    <fieldset>
-      <label for="nombreEquipo1">Nombre del primer equipo: </label>
-      <input
-        type="text"
-        id="nombreEquipo1"
-        formControlName="nombreEquipo1"
-      />
-    </fieldset>
-    <fieldset>
-      <label for="personaje11">Primer personaje: </label>
-      <select formControlName="personaje11" id="personaje11">
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
-    <fieldset>
-      <label for="personaje12">Segundo personaje: </label>
-      <select formControlName="personaje12" id="personaje12">
-        <option [value]="null"></option>
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
-    <fieldset>
-      <label for="personaje13">Tercer personaje: </label>
-      <select formControlName="personaje13" id="personaje13">
-        <option [value]="null"></option>
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
-    <fieldset>
-      <label for="personaje14">Cuarto personaje: </label>
-      <select formControlName="personaje14" id="personaje14">
-        <option [value]="null"></option>
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
+  <div class="flex pb-4">
+    <div class="w-1/2">
+      <fieldset class="text-lg mb-4">
+        <label for="nombreEquipo1">Nombre del primer equipo: </label>
+        <input
+          type="text"
+          class="font-bold border-b-2"
+          id="nombreEquipo1"
+          formControlName="nombreEquipo1"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="personaje11">Primer personaje: </label>
+        <select formControlName="personaje11" id="personaje11">
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+      <fieldset *ngIf="mostrarPersonaje12() && form.value.personaje11 !== ''">
+        <label for="personaje12">Segundo personaje: </label>
+        <select formControlName="personaje12" id="personaje12">
+          <option [value]=""></option>
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+      <fieldset *ngIf="mostrarPersonaje13() && form.value.personaje12 !== ''">
+        <label for="personaje13">Tercer personaje: </label>
+        <select formControlName="personaje13" id="personaje13">
+          <option [value]=""></option>
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+      <fieldset
+        *ngIf="
+          mostrarPersonaje14() &&
+          form.value.personaje13 !== '' &&
+          form.value.personaje12 !== ''
+        "
+      >
+        <label for="personaje14">Cuarto personaje: </label>
+        <select formControlName="personaje14" id="personaje14">
+          <option [value]=""></option>
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+    </div>
+    <div class="w-1/2">
+      <fieldset class="text-lg mb-4">
+        <label for="nombreEquipo2">Nombre del segundo equipo: </label>
+        <input
+          type="text"
+          class="font-bold border-b-2"
+          id="nombreEquipo2"
+          formControlName="nombreEquipo2"
+        />
+      </fieldset>
+      <fieldset>
+        <label for="personaje21">Primer personaje: </label>
+        <select formControlName="personaje21" id="personaje21">
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+      <fieldset *ngIf="mostrarPersonaje22()">
+        <label for="personaje22">Segundo personaje: </label>
+        <select formControlName="personaje22" id="personaje22">
+          <option [value]=""></option>
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+      <fieldset *ngIf="mostrarPersonaje23() && form.value.personaje22 !== ''">
+        <label for="personaje23">Tercer personaje: </label>
+        <select formControlName="personaje23" id="personaje23">
+          <option [value]=""></option>
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+      <fieldset
+        *ngIf="
+          mostrarPersonaje24() &&
+          form.value.personaje23 !== '' &&
+          form.value.personaje22 !== ''
+        "
+      >
+        <label for="personaje24">Cuarto personaje: </label>
+        <select formControlName="personaje24" id="personaje24">
+          <option [value]=""></option>
+          <option *ngFor="let personaje of personajes" [value]="personaje.id">
+            {{ personaje.nombre }}
+          </option>
+        </select>
+      </fieldset>
+    </div>
   </div>
-
-  <div>
-    <fieldset>
-      <label for="nombreEquipo2">Nombre del segundo equipo: </label>
-      <input
-        type="text"
-        id="nombreEquipo2"
-        formControlName="nombreEquipo2"
-      />
-    </fieldset>
-    <fieldset>
-      <label for="personaje21">Primer personaje: </label>
-      <select formControlName="personaje21" id="personaje21">
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
-    <fieldset>
-      <label for="personaje22">Segundo personaje: </label>
-      <select formControlName="personaje22" id="personaje22">
-        <option [value]="null"></option>
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
-    <fieldset>
-      <label for="personaje23">Tercer personaje: </label>
-      <select formControlName="personaje23" id="personaje23">
-        <option [value]="null"></option>
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
-    <fieldset>
-      <label for="personaje24">Cuarto personaje: </label>
-      <select formControlName="personaje24" id="personaje24">
-        <option [value]="null"></option>
-        <option *ngFor="let personaje of personajes" [value]="personaje.id">
-          {{ personaje.nombre }}
-        </option>
-      </select>
-    </fieldset>
+  <div class="w-full flex">
+    <div class="flex justify-around pt-4 w-1/2">
+      @if (form.value.personaje11) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje11)"
+          [completo]="false"
+        />
+      </div>
+      } @if (form.value.personaje12) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje12)"
+          [completo]="false"
+        />
+      </div>
+      } @if (form.value.personaje13) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje13)"
+          [completo]="false"
+        />
+      </div>
+      } @if (form.value.personaje14) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje14)"
+          [completo]="false"
+        />
+      </div>
+      }
+    </div>
+    <div class="flex justify-around pt-4 w-1/2">
+      @if (form.value.personaje21) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje21)"
+          [completo]="false"
+        />
+      </div>
+      } @if (form.value.personaje22) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje22)"
+          [completo]="false"
+        />
+      </div>
+      } @if (form.value.personaje23) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje23)"
+          [completo]="false"
+        />
+      </div>
+      } @if (form.value.personaje24) {
+      <div class="w-[20%]">
+        <app-personaje
+          [personaje]="getPersonaje(form.value.personaje24)"
+          [completo]="false"
+        />
+      </div>
+      }
+    </div>
   </div>
-
   <fieldset class="h-full w-full flex justify-center items-center p-4 text-2xl">
     <button
       type="submit"
-      class="bg-[var(--color-secondary)] border-black border-4 rounded-lg p-4 mb-4"
+      class="bg-[var(--color-secondary)] border-white border-4 rounded-lg p-4 mb-4 text-white"
+      [disabled]="!form!.valid"
     >
       Crear Batalla
     </button>

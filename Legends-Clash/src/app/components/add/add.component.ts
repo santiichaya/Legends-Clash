@@ -6,7 +6,6 @@ import { RouterLink } from '@angular/router';
   selector: 'app-add',
   imports: [MatIconModule, RouterLink],
   templateUrl: './add.component.html',
-  styleUrl: './add.component.css',
 })
 export class AddComponent {
 

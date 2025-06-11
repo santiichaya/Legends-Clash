@@ -10,6 +10,7 @@ import com.LegendsClash.project.repositories.PersonajeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,7 +30,13 @@ public class BatallaService {
         equipo1.setNombreEquipo(batalla.getNombreEquipo1());
 
         // Obtener y asignar personajes al equipo
-        List<Personaje> personajesEquipo1 = personajeRepository.findAllById(batalla.getPersonajes1());
+        List<Long> ids1 = batalla.getPersonajes1();
+        List<Personaje> personajesEquipo1 = new ArrayList<>();
+        for (Long id : ids1) {
+            if (id != null) {
+                personajeRepository.findById(id).ifPresent(personajesEquipo1::add);
+            }
+        }
         equipo1.setPersonajes(personajesEquipo1);
         equipo1 = equipoRepository.save(equipo1);
 
@@ -37,7 +44,13 @@ public class BatallaService {
         equipo2.setNombreEquipo(batalla.getNombreEquipo2());
 
         // Obtener y asignar personajes al equipo
-        List<Personaje> personajesEquipo2 = personajeRepository.findAllById(batalla.getPersonajes2());
+        List<Long> ids2 = batalla.getPersonajes2();
+        List<Personaje> personajesEquipo2 = new ArrayList<>();
+        for (Long id : ids2) {
+            if (id != null) {
+                personajeRepository.findById(id).ifPresent(personajesEquipo2::add);
+            }
+        }
         equipo2.setPersonajes(personajesEquipo2);
         equipo2 = equipoRepository.save(equipo2);
 

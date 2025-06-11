@@ -61,7 +61,7 @@ ON CONFLICT (id) DO NOTHING;
 INSERT INTO usuario (id, username, email, password)
 VALUES
   (1, 'admin', 'admin@example.com', '$2a$10$Lh/biCDoSHI4X8rYLpBM/uGZ8mv4DEc4tq2xX.4QcbhnJaup.RYfW'),
-  (2, 'user', 'user@example.com', '$2a$10$ycjF9OaAf/FmOG74KoxhsOAOPNpHonp/wT5iYkSXgYe1QNeZxVkSi')
+  (2, 'user', 'user@example.com', '$2a$10$Lh/biCDoSHI4X8rYLpBM/uGZ8mv4DEc4tq2xX.4QcbhnJaup.RYfW')
 ON CONFLICT (id) DO NOTHING;
 
 

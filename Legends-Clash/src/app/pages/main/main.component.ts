@@ -13,7 +13,6 @@ import { AddComponent } from "../../components/add/add.component";
   selector: 'app-main',
   imports: [PersonajeCartaComponent, BatallaComponent, MatIconModule, AddComponent],
   templateUrl: './main.component.html',
-  styleUrl: './main.component.css'
 })
 export class MainComponent implements OnInit {
 

@@ -9,7 +9,6 @@ import { Router, RouterLink } from '@angular/router';
   selector: 'app-login',
   imports: [ReactiveFormsModule, MatIconModule, RouterLink],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit {
 

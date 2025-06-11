@@ -12,4 +12,10 @@ public interface VotoRepository extends JpaRepository<Voto, Long> {
             WHERE v.batalla.id = :id
             """)
     Voto[] obtenerPorIdBatalla(@Param("id") Long id);
+
+    @Query("""
+            SELECT v FROM Voto v
+            WHERE v.batalla.id = :batalla_id AND v.usuario.id = :usuario_id
+            """)
+    Voto[] obtenerPorBatallaYUsuario(@Param("batalla_id") Long batalla_id, @Param("usuario_id") Long usuario_id);
 }

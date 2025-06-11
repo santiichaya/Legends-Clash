@@ -6,6 +6,8 @@ import com.LegendsClash.project.DTO.UserRegister;
 import com.LegendsClash.project.models.Usuario;
 import com.LegendsClash.project.seguridad.JwtTokenProvider;
 import com.LegendsClash.project.services.UsuarioService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -27,8 +29,13 @@ public class AuthController {
 
 
     @PostMapping("/auth/register")
-    public Usuario save(@RequestBody UserRegister userDTO){
-        return this.userService.save(userDTO);
+    public ResponseEntity<?> save(@RequestBody UserRegister userDTO) {
+        try {
+            Usuario usuario = this.userService.save(userDTO);
+            return ResponseEntity.ok(usuario);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Usuario o email ya existe");
+        }
     }
 
     @PostMapping("/auth/login")
