@@ -5,6 +5,9 @@
         <p class="font-[Chernobyl] text-6xl">Legends Clash</p>
       </a>
     </div>
+    @if (user.isLoggedIn()) {
+      <p class="text-4xl">BIENVENIDO {{ user.username }}</p>
+    }
     <div>
       @if (user.isLoggedIn()) {
       <button (click)="logout()">

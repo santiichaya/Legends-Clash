@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, ValidationErrors, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+  ValidationErrors,
+  Validators,
+} from '@angular/forms';
 import { ApiService } from '../../services/api/api.service';
 import { UserService } from '../../services/user/user.service';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,19 +23,26 @@ export class RegisterComponent {
   registerForm: FormGroup | null;
   password1 = true;
   password2 = true;
-  mensajeError = "";
+  mensajeError = '';
 
-  constructor(public api: ApiService, public user: UserService, public router: Router) {
+  constructor(
+    public api: ApiService,
+    public user: UserService,
+    public router: Router
+  ) {
     this.registerForm = null;
   }
 
   ngOnInit(): void {
-    this.registerForm = new FormGroup({
-      username: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', Validators.required),
-      password2: new FormControl('', Validators.required),
-    }, { validators: this.passwordMatchValidator });
+    this.registerForm = new FormGroup(
+      {
+        username: new FormControl('', Validators.required),
+        email: new FormControl('', [Validators.required, Validators.email]),
+        password: new FormControl('', Validators.required),
+        password2: new FormControl('', Validators.required),
+      },
+      { validators: this.passwordMatchValidator }
+    );
   }
 
   register() {
@@ -39,10 +53,9 @@ export class RegisterComponent {
         usuarioLogin.username = this.registerForm?.value.username;
         usuarioLogin.password = this.registerForm?.value.password;
         this.user.login(usuarioLogin).subscribe({
-          next: () => this.router.navigate(["/"]),
-          error: (e) => console.log(e)
-        })
-
+          next: () => this.router.navigate(['/']),
+          error: (e) => console.log(e),
+        });
       },
       error: (e) => {
         this.mensajeError = e.error;
@@ -59,9 +72,9 @@ export class RegisterComponent {
   }
 
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
-  const password = control.get('password')?.value;
-  const password2 = control.get('password2')?.value;
+    const password = control.get('password')?.value;
+    const password2 = control.get('password2')?.value;
 
-  return password === password2 ? null : { passwordMismatch: true };
-}
+    return password === password2 ? null : { passwordMismatch: true };
+  }
 }

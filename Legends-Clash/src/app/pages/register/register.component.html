@@ -1,19 +1,29 @@
 <div
-            *ngIf="
-              registerForm!.hasError('passwordMismatch') &&
-              registerForm!.get('password2')?.touched
-            "
-            class="text-red-500 w-full text-center pt-8 text-2xl"
-          >
-            Las contraseñas no coinciden.
-          </div>
+  *ngIf="
+    registerForm!.hasError('passwordMismatch') &&
+    registerForm!.get('password2')?.touched
+  "
+  class="text-red-500 w-full text-center pt-8 text-2xl"
+>
+  Las contraseñas no coinciden.
+</div>
 
-  <div
-            *ngIf="mensajeError !== ''"
-            class="text-red-500 w-full text-center pt-8 text-2xl"
-          >
-            {{mensajeError}}
-          </div>
+<div
+  *ngIf="
+    registerForm!.get('email')?.invalid &&
+    (registerForm!.get('email')?.dirty || registerForm!.get('email')?.touched)
+  "
+  class="text-red-500 w-full text-center pt-8 text-2xl"
+>
+  Email no váido.
+</div>
+
+<div
+  *ngIf="mensajeError !== ''"
+  class="text-red-500 w-full text-center pt-8 text-2xl"
+>
+  {{ mensajeError }}
+</div>
 <div class="flex justify-start items-center h-[50rem] flex-col">
   <form
     [formGroup]="registerForm!"

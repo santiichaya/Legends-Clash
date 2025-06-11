@@ -14,6 +14,7 @@ export class UserService {
   private readonly TOKEN_KEY = 'jwtToken';
   private readonly USER_ROLES = 'authorities';
   public userRoles: string = "";
+  public username: string = "";
 
   constructor(private http: HttpClient, private cookie: CookieService) {
     this.loadUserData();
@@ -50,6 +51,7 @@ export class UserService {
             true,
             'Strict'
           );
+          this.username = response.username;
           this.loadUserData();
         })
       );
