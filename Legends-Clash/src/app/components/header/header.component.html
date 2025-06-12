@@ -5,7 +5,7 @@
         <p class="font-[Chernobyl] text-6xl">Legends Clash</p>
       </a>
     </div>
-    @if (user.isLoggedIn()) {
+    @if (user.username) {
       <p class="text-4xl">BIENVENIDO {{ user.username }}</p>
     }
     <div>

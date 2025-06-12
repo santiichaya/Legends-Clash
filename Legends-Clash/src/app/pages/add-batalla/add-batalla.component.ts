@@ -54,10 +54,8 @@ export class AddBatallaComponent {
   }
 
   addBatalla() {
-    console.log(this.form.value);
     this.api.createBatalla(this.form.value).subscribe({
       next: (data) => {
-        console.log(data);
         this.router.navigate(['/batallas']);
       },
       error: (e) => console.log(e),

@@ -68,7 +68,6 @@ export class ApiService {
       batalla.personaje23,
       batalla.personaje24,
     ];
-    console.log(bat);
     return this.http.post<Batalla>(`${this.API_URL}/api/batallas`, bat);
   }
 

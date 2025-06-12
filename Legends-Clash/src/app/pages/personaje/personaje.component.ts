@@ -55,7 +55,6 @@ export class PersonajeComponent implements OnInit {
   }
 
   actualizar() {
-    console.log(this.personaje);
     const update: PersonajeUpdate = {
       id: this.personaje!.id,
       nombre: this.personaje!.nombre,
@@ -73,7 +72,6 @@ export class PersonajeComponent implements OnInit {
       experiencia: this.personaje!.experiencia,
     };
     this.api.updatePersonaje(update).subscribe({
-      next: (data) => console.log(data),
       error: (e) => console.log(e)
     });
   }

@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
     let usuario = this.user.login(this.loginform?.value);
     usuario.subscribe({
       next: (data) => {
-        console.log(data);
         this.router.navigate(["/"])
       },
       error: (e) => {
