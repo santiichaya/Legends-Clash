@@ -1,59 +1,58 @@
 # LegendsClash
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+TFG de Desarrollo de Aplicaciones Web por Santiago Alejandre Chaya
 
-## Development server
 
-To start a local development server, run:
+## Los programas necesarios para que funcione la app: 
 
-```bash
-ng serve
-```
+### PostgreSQL
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Se debe instalar PostgreSQL, una vez instalado abrir un servidor que se llame legends_clash con un usuario y contraseña postgre si es posible y comprobar el puerto en el que se ejecuta, servirá para más tarde. 
 
-## Code scaffolding
+### IntelliJ
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Después de clonar el repositorio, abrir la carpeta project en intellij
 
-```bash
-ng generate component component-name
-```
+### Visual Studio Code
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Arrastrar la carpeta completa del repositorio a VS code
 
-```bash
-ng generate --help
-```
+## Iniciar la app:
 
-## Building
+### IntelliJ:
 
-To build the project run:
+Copiar el application.propperties.sample en un nuevo archivo application.propperties. 
+
+Se deben escribir tus propias variables.
+
+Ejecutar 
 
 ```bash
-ng build
+mvn clean install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Ejecutar 
 
 ```bash
-ng test
+mvn spring-boot:run
 ```
 
-## Running end-to-end tests
+### PostgreSQL:
 
-For end-to-end (e2e) testing, run:
+Si no ha dado ningún error Spring Boot se puede comprobar la creación de las tablas. 
+
+### VScode: 
+
+Una vez en VScode debes comprobar que en api.service.ts y en user.service.ts está bien el puerto de API_URL que debe estar señalando a tu IntelliJ
+
+Una vez todo está correcto:
 
 ```bash
-ng e2e
+cd legends-clash
 ```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+npm install
+```
+```bash
+ng serve --open
+```

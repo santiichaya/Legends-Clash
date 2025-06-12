@@ -1,0 +1,23 @@
+# Datasource Configuration
+  spring.datasource.url=jdbc:postgresql://localhost:[tu-puerto]/legends_clash
+  spring.datasource.username=[tu-usuario]
+  spring.datasource.password=tu-contraseña
+
+# Hibernate Configuration
+  spring.jpa.hibernate.ddl-auto=update
+  spring.jpa.show-sql=true
+  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+  spring.jpa.defer-datasource-initialization=true
+
+# SQL Data Configuration
+  spring.sql.init.mode=always
+  spring.sql.init.schema-locations=classpath:schema.sql
+  spring.sql.init.data-locations=classpath:data.sql
+  spring.sql.init.encoding=UTF-8
+
+# HTTP Encoding
+  spring.http.encoding.force=true
+  spring.http.encoding.enabled=true
+
+  app.security.jwt.secret=[tu-hash]
+  app.security.jwt.expiration=86400
