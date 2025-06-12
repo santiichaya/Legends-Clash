@@ -67,5 +67,8 @@ export class UserService {
 
   logout() {
     this.cookie.delete(this.TOKEN_KEY, '/');
+    this.cookie.delete(this.USER_ROLES, '/');
+    this.username="";
+    this.userRoles="";
   }
 }

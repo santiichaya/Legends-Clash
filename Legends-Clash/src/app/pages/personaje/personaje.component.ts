@@ -72,6 +72,9 @@ export class PersonajeComponent implements OnInit {
       experiencia: this.personaje!.experiencia,
     };
     this.api.updatePersonaje(update).subscribe({
+      next: (data) => {
+        window.location.reload();
+      },
       error: (e) => console.log(e)
     });
   }
