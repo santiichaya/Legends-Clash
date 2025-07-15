@@ -1,7 +1,7 @@
 # Datasource Configuration
   spring.datasource.url=jdbc:postgresql://localhost:[tu-puerto]/legends_clash
   spring.datasource.username=[tu-usuario]
-  spring.datasource.password=tu-contraseña
+  spring.datasource.password=[tu-contraseña]
 
 # Hibernate Configuration
   spring.jpa.hibernate.ddl-auto=update
